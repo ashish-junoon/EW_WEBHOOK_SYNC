@@ -103,9 +103,9 @@ namespace DataSyncScheduler
                 {
                     SqlParameter[] param = new SqlParameter[]
                     {
-                        new SqlParameter("@vendor_code", "PUX")
+                        new SqlParameter("@vendor_code", "EWPL")
                     };
-                    objDs = helper_class.SqlHelper.ExecuteDataset(masterConnStr,CommandType.StoredProcedure,"USP_GetPaymentTransactions",param);
+                    objDs = helper_class.SqlHelper.ExecuteDataset(masterConnStr,CommandType.StoredProcedure, "USP_EW_GetPaymentTransactions", param);
                 }
                 if (objDs?.Tables[0] != null && objDs.Tables[0].Rows.Count > 0)
                 {
