@@ -188,7 +188,7 @@ namespace DataSyncScheduler
                 using (var connection = new SqlConnection(masterConnStr))
                 {
                     SqlParameter[] param = new SqlParameter[0];
-                    objDs = helper_class.SqlHelper.ExecuteDataset(masterConnStr, CommandType.StoredProcedure, "USP_GetPullPaymentTransactions", param);
+                    objDs = helper_class.SqlHelper.ExecuteDataset(masterConnStr, CommandType.StoredProcedure, "USP_EW_GetPullPaymentTransactions", param);
                 }
                 if (objDs?.Tables[0] != null && objDs.Tables[0].Rows.Count > 0)
                 {
