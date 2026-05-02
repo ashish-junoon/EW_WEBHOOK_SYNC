@@ -1,6 +1,4 @@
-﻿
-
-using NLog;
+﻿using NLog;
 using System;
 using System.Configuration;
 using System.IO;
@@ -341,13 +339,6 @@ namespace DataSyncScheduler
                 {
                     mail.To.Add(new MailAddress(recipientEmail, "Early Wages"));
 
-                    //if (!string.IsNullOrEmpty(recipientEmail))
-                    //{
-                    //    foreach (var email in recipientEmail.Split('|'))
-                    //    {
-                    //        mail.To.Add(new MailAddress(recipientEmail, (ConfigurationManager.AppSettings["email_receiver_name"])));
-                    //    }
-                    //}
                     if (!string.IsNullOrEmpty(Emailcc))
                     {
                         foreach (var email in Emailcc.Split('|'))

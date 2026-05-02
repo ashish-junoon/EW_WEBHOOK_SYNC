@@ -105,7 +105,7 @@ namespace DataSyncScheduler
                     {
                         new SqlParameter("@vendor_code", "EWPL")
                     };
-                    objDs = helper_class.SqlHelper.ExecuteDataset(masterConnStr,CommandType.StoredProcedure, "USP_EW_GetPaymentTransactions", param);
+                    objDs = helper_class.SqlHelper.ExecuteDataset(masterConnStr,CommandType.StoredProcedure,"USP_GetPaymentTransactions",param);
                 }
                 if (objDs?.Tables[0] != null && objDs.Tables[0].Rows.Count > 0)
                 {
@@ -188,7 +188,7 @@ namespace DataSyncScheduler
                 using (var connection = new SqlConnection(masterConnStr))
                 {
                     SqlParameter[] param = new SqlParameter[0];
-                    objDs = helper_class.SqlHelper.ExecuteDataset(masterConnStr, CommandType.StoredProcedure, "USP_EW_GetPullPaymentTransactions", param);
+                    objDs = helper_class.SqlHelper.ExecuteDataset(masterConnStr, CommandType.StoredProcedure, "USP_EW_GetPullPaymentTransactions_V1", param);
                 }
                 if (objDs?.Tables[0] != null && objDs.Tables[0].Rows.Count > 0)
                 {
@@ -208,7 +208,12 @@ namespace DataSyncScheduler
                             request_type = row["request_type"] != DBNull.Value ? Convert.ToString(row["request_type"]) : string.Empty,
                             response_description = row["response_description"] != DBNull.Value ? Convert.ToString(row["response_description"]) : string.Empty,
                             amount = row["amount"] != DBNull.Value ? Convert.ToDecimal(row["amount"]) : 0,
-                            is_pull_process = row["is_pull_process"] != DBNull.Value ? Convert.ToBoolean(row["is_pull_process"]) : false
+                            is_pull_process = row["is_pull_process"] != DBNull.Value ? Convert.ToBoolean(row["is_pull_process"]) : false,
+                            presentment_id = row["presentment_id"] != DBNull.Value ? Convert.ToString(row["presentment_id"]) : string.Empty,
+                            presentment_date = row["presentment_date"] != DBNull.Value ? Convert.ToString(row["presentment_date"]) : string.Empty,
+                            responce_type = row["responce_type"] != DBNull.Value ? Convert.ToString(row["responce_type"]) : string.Empty,
+                            transaction_reference_number = row["transaction_reference_number"] != DBNull.Value ? Convert.ToString(row["transaction_reference_number"]) : string.Empty,
+                            bank_reference_number = row["bank_reference_number"] != DBNull.Value ? Convert.ToString(row["bank_reference_number"]) : string.Empty,
                         };
                         pullPaymentServices.Add(transaction);
                     }

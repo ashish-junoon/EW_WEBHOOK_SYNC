@@ -82,12 +82,19 @@ namespace DataSyncScheduler
                         new SqlParameter("@user_id", data.user_id ?? (object)DBNull.Value),
                         new SqlParameter("@request_type", data.request_type ?? (object)DBNull.Value),
                         new SqlParameter("@response_description", data.response_description ?? (object)DBNull.Value),
-                        new SqlParameter("@is_pull_process", data.is_pull_process)
+                        new SqlParameter("@is_pull_process", data.is_pull_process),
+                        new SqlParameter("@presentment_id", data.presentment_id ?? (object)DBNull.Value),
+                        new SqlParameter("@presentment_date", data.presentment_date ?? (object)DBNull.Value),
+                        new SqlParameter("@responce_type", data.responce_type ?? (object)DBNull.Value),
+                        new SqlParameter("@transaction_reference_number", data.transaction_reference_number ?? (object)DBNull.Value),
+                        new SqlParameter("@bank_reference_number", data.bank_reference_number ?? (object)DBNull.Value),
+                    
                     };
                     helper_class.SqlHelper.ExecuteNonQuery(
                         paisaudharConnStr,
                         CommandType.StoredProcedure,
-                        "USP_easebuzz_payment_getways_collection",
+                        //"USP_easebuzz_pull_payment_collection",
+                        "USP_easebuzz_pull_payment_collection_V1",
                         param
                     );
                 }

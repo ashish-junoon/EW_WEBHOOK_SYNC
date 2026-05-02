@@ -21,5 +21,11 @@ namespace DataSyncScheduler
         public string response_description { get; set; }
         public decimal amount { get; set; }
         public bool is_pull_process { get; set; }
+        public string presentment_id { get; set; }
+        public string presentment_date { get; set; }
+        public string responce_type { get; set; }
+        public string transaction_reference_number { get; set; }
+        public string bank_reference_number { get; set; }
+  
     }
 }

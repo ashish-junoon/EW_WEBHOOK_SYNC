@@ -76,6 +76,7 @@ namespace DataSyncScheduler
                         new SqlParameter("@loan_id", data.loan_id),
                         new SqlParameter("@collection_status", data.status),
                         new SqlParameter("@collection_date", data.paid_on.ToString("yyyy-MM-dd")),
+                        //new SqlParameter("@collection_date", data.paid_on),
                         new SqlParameter("@collection_amount", data.amount),
                         new SqlParameter("@transction_id", data.transaction_id)
                     };
